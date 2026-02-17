@@ -1,38 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script src="https://pl28734870.effectivegatecpm.com/05/76/64/057664b29eb6bbc20cbecc610c7effd3.js"></script>
+    
     <title>Earnify Pro Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body { font-family: sans-serif; text-align: center; background: #121212; color: white; padding-top: 50px; }
-        .card { background: #1e1e1e; padding: 30px; margin: auto; width: 85%; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
-        .btn { background: #00c853; color: white; border: none; padding: 15px 40px; border-radius: 50px; font-size: 20px; cursor: pointer; font-weight: bold; }
-        #timer { margin-top: 15px; color: #ffd600; font-weight: bold; }
+        .card { background: #1e1e1e; padding: 30px; margin: auto; width: 85%; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); border: 1px solid #333; }
+        h1 { color: #00c853; margin-bottom: 10px; }
+        #balance { font-size: 24px; color: #ffd600; font-weight: bold; }
+        .btn { background: #00c853; color: white; border: none; padding: 15px 40px; border-radius: 50px; font-size: 18px; cursor: pointer; font-weight: bold; margin-top: 20px; transition: 0.3s; }
+        .btn:disabled { background: #555; cursor: not-allowed; }
+        #timer { margin-top: 15px; color: #aaa; font-style: italic; }
     </style>
 </head>
 <body>
     <div class="card">
         <h1>Earnify Dashboard</h1>
         <p>Your Balance: <span id="balance">0</span> Points</p>
-        <button class="btn" onclick="startEarning()">WATCH AD & EARN</button>
-        <div id="timer"></div>
+        <hr style="border: 0.5px solid #333; margin: 20px 0;">
+        <button class="btn" id="adBtn" onclick="startEarning()">WATCH AD & EARN</button>
+        <div id="timer">Click the button to start earning!</div>
     </div>
 
     <script>
         function startEarning() {
-            // Jab Adsterra se link mil jaye toh 'YOUR_LINK' ki jagah wo paste kar dena
-            window.open('YOUR_ADSTERRA_DIRECT_LINK', '_blank');
+            // 2. Dashboard Button Link
+            // Yahan apna Adsterra DIRECT LINK paste karein (Abhi maine default rakha hai)
+            window.open('https://https://www.effectivegatecpm.com/q30vppvq?key=59903767b4cb88449c51d991f014c646');
             
             let time = 10;
-            let btn = document.querySelector('.btn');
-            btn.disabled = true;
+            let btn = document.getElementById('adBtn');
+            let timerDisplay = document.getElementById('timer');
             
+            btn.disabled = true;
             let countdown = setInterval(() => {
-                document.getElementById('timer').innerText = "Ad finishing in: " + time + "s";
+                timerDisplay.innerText = "Processing reward in: " + time + "s";
                 time--;
                 if(time < 0) {
                     clearInterval(countdown);
-                    document.getElementById('timer').innerText = "5 Points Added!";
+                    timerDisplay.innerText = "Success! 5 Points Added.";
                     document.getElementById('balance').innerText = parseInt(document.getElementById('balance').innerText) + 5;
                     btn.disabled = false;
                 }
@@ -41,3 +49,4 @@
     </script>
 </body>
 </html>
+
