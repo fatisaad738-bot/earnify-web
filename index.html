@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Earnify Pro Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: sans-serif; text-align: center; background: #121212; color: white; padding-top: 50px; }
+        .card { background: #1e1e1e; padding: 30px; margin: auto; width: 85%; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+        .btn { background: #00c853; color: white; border: none; padding: 15px 40px; border-radius: 50px; font-size: 20px; cursor: pointer; font-weight: bold; }
+        #timer { margin-top: 15px; color: #ffd600; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Earnify Dashboard</h1>
+        <p>Your Balance: <span id="balance">0</span> Points</p>
+        <button class="btn" onclick="startEarning()">WATCH AD & EARN</button>
+        <div id="timer"></div>
+    </div>
+
+    <script>
+        function startEarning() {
+            // Jab Adsterra se link mil jaye toh 'YOUR_LINK' ki jagah wo paste kar dena
+            window.open('YOUR_ADSTERRA_DIRECT_LINK', '_blank');
+            
+            let time = 10;
+            let btn = document.querySelector('.btn');
+            btn.disabled = true;
+            
+            let countdown = setInterval(() => {
+                document.getElementById('timer').innerText = "Ad finishing in: " + time + "s";
+                time--;
+                if(time < 0) {
+                    clearInterval(countdown);
+                    document.getElementById('timer').innerText = "5 Points Added!";
+                    document.getElementById('balance').innerText = parseInt(document.getElementById('balance').innerText) + 5;
+                    btn.disabled = false;
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
